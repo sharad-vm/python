@@ -1,6 +1,9 @@
 import numpy as np
 
+#Gets the user input for sample size
 samplesize = int(raw_input("Please provide the samplesize:"))
+
+#Function to generate random variables, count and find the mean based on the sample size provided
 def lln(samplesize):
     r = np.random.randn(samplesize)
     counter = 0
