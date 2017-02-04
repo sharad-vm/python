@@ -1,20 +1,21 @@
 from sys import argv
 from os.path import exists
-import linecache
+from shutil import copyfile
 
 prefix = raw_input("Please provide an input prefix file:")
 #script, prefix = argv
 
 #Reading the original file
-originalfile = open(prefix)
-txt = originalfile.read()
+#originalfile = open(prefix)
+oldfilename = prefix.split('.')[0]+".old.txt"
+copyfile(prefix, oldfilename)
 
-oldfilename = prefix+".old.txt"
-newfilename = prefix+".new.txt"
+newfilename = prefix.split('.')[0]+".new.txt"
 
 #Creating the old and new master files
 try:
-    oldmasterfile = open(oldfilename, 'w')
+    oldmasterfile = open(oldfilename)
+    txt = oldmasterfile.read()
     newmasterfile = open(newfilename, 'w')
 
 except:
@@ -39,44 +40,59 @@ def get_accountholder(one_line):
     accountholder = line.split(' ')[2]
     return accountholder
 
+def equal_floats(x_flt, y_flt):
+    float(x_flt) == float(y_flt)
+
 #Display customer information
+records = len(txt.split('\n'))
 line = int(raw_input ("Enter line numer: "))
 
-print "Account number of the customer: %s" %get_number(line)
-print "Account holder: %s" %get_accountholder(line)
-print "Balance available for the customer: %s" %get_balance(line)
+print records
+while line <= records:
 
-#Prompts for transactions
-transaction = raw_input(
-"""
-d - deposit
-w - withdrawal
-c - close
-a - advance to next customer
-Please enter a transaction code from above:"""
-)
+    print "Account number of the customer: %s" %get_number(line)
+    print "Account holder: %s" %get_accountholder(line)
+    print "Balance available for the customer: %s" %get_balance(line)
 
-if transaction == "d":
-    deposit = int(raw_input("Enter the amount to be deposited:"))
+    #Prompts for transactions
+    transaction = raw_input(
+    """
+    d - deposit
+    w - withdrawal
+    c - close
+    a - advance to next customer
+    Please enter a transaction code from above:"""
+    )
 
-if transaction == "w":
-    withdraw = int(raw_input("Enter the amount of withdrawal:"))
+    if transaction == "d":
+        deposit = int(raw_input("Enter the amount to be deposited:"))
 
-if transaction == "c":
-    close = str(raw_input("Are you sure?"))
+    if transaction == "w":
+        withdraw = int(raw_input("Enter the amount of withdrawal:"))
 
-#Completing the transaction
+    if transaction == "c":
+        close = str(raw_input("Are you sure?"))
 
-if transaction == "d":
-    newbalance = int(get_balance(line)) + deposit
+    #Completing the transaction
 
-if transaction == "w":
-    newbalance = int(get_balance(line)) - withdraw
+    if transaction == "d":
+        newbalance = int(get_balance(line)) + deposit
 
-if transaction == "a":
-    newbalance = int(get_balance(line))
+    if transaction == "w":
+        newbalance = int(get_balance(line)) - withdraw
 
-newline = get_number(line) + " " + str(newbalance) + " " + get_accountholder(line)
-#Writing the file back to the new master file
-newmasterfile.write(newline)
+    if transaction == "a":
+        newbalance = int(get_balance(line))
+
+    if transaction == "c":
+        line=line+1
+        continue
+
+    newline = get_number(line) + " " + str(newbalance) + " " + get_accountholder(line) + "\r\n"
+    #Writing the file back to the new master file
+    newmasterfile.write(newline)
+    line=line+1
+
+#Closing the files
 newmasterfile.close()
+oldmasterfile.close()
