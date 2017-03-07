@@ -33,7 +33,7 @@ if False:
     print df
     print '' # Create a blank line between outputs
     print df + s
-    
+    print df.add(s, axis = 'index')
 
     
 # Adding when DataFrame column names match Series index
