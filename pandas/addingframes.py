@@ -33,7 +33,8 @@ if False:
     print df
     print '' # Create a blank line between outputs
     print df + s
-    print df.add(s, axis = 'index')
+    print df.add(s, axis = 'index')  #To add along rows
+    print df.sub(s, axis = 'index')  #To subtract along rows
 
     
 # Adding when DataFrame column names match Series index
