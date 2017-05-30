@@ -4,7 +4,7 @@
 ### Map Area
 #### [Bengaluru, Karnataka, India](https://www.openstreetmap.org/search?query=bengaluru#map=12/12.9719/77.5937)
 
-As a kid, I lived close to Bengaluru in India and have been away for more than 10 years now. I want to take this opportunity to go explore how the city has grown and also contribute a little by cleaning up the data in Open Street Map and provide some insights on the 'Garden City', Bengaluru.
+As a kid, I lived close to Bengaluru in India and have been away for more than 10 years now. I want to take this opportunity to explore how the city has grown and also contribute by cleaning up the data in Open Street Map and provide some insights on the 'Garden City', Bengaluru.
 
 
 ### Problems encountered in the map
@@ -404,7 +404,21 @@ id	|  Distance from the city center(in kms)
 2577231853	| 0.35
 428843493	| 0.43
 
-* I also noticed that the accuracy of some of the data is questionable and an option for a user to 'Report a Problem' which would inactivate a particular tag for example would make the data more reliable and accurate.
+* I also noticed that the accuracy of some of the data is questionable and an option for users to 'Report a Problem' which would inactivate a particular tag for example would make the data more reliable and accurate.
+
+In addition to benefits, these additional ideas could bring in some problems as well. Below are some benefits and anticipated problems by following these ideas, in my opinion.
+
+##### Benefits
+
+* The data would be more cleaner and readable
+
+* Better and moer accurate analysis
+
+##### Anticipated problems
+
+* Cleaning the data of lesser known or recognized amenities like cafes or restaurants could be a challenge as their data cannot be verified easily
+
+* 'Report a problem' feature or anything similar takes time to receive feedback and ultimately clean data
 
 ### Conclusion
 
