@@ -17,6 +17,7 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
+        s = list(s)
                 
         i, j = 0, len(s)-1
         
