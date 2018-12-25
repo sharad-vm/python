@@ -26,3 +26,18 @@ class Solution:
         if sum>9:
             return self.addDigits(sum)
         return sum
+"""
+Follow up:
+Could you do it without any loop/recursion in O(1) runtime?
+
+class Solution:
+    def addDigits(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        if (num%9 != 0) or (num == 0):
+            return num % 9
+        else:
+            return 9
+"""
